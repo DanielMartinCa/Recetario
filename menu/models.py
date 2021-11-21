@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Ingrediente(models.Model):
     nombre = models.CharField('Nombre',max_length=100)
-    origen = models.CharField('Ori',max_length=100)
+    origen = models.CharField('Origen',max_length=100)
     
 
     def __str__(self):

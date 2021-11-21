@@ -1,22 +1,13 @@
 {% extends "base.html"%}
 
-{% block title %}Mi superbiblio {% endblock %}
+{% block title %}Recetario {% endblock %}
 {% block content %}
-    <h1>Índice del catálogo</h1>
+    <h1>Bienvenido a tu recetario</h1>
     {{autor}}
     <strong>Visitas : {{visitas}}</strong>
     <hr>
-    <form class="form-inline mt-2 mt-md-0" 
-    action=""
-    method="get">
-    <input 
-        name="q" 
-        class="form-control mr-sm-2" 
-        type="text" 
-        placeholder="Buscar" 
-        aria-label="Buscar">
-    </form>
+
  
-    <h2 class="mt-4">Últimos libros</h2>
+    <h2 class="mt-4">Novedades</h2>
     
 {% endblock %}
