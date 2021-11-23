@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+
+{% block title %}Listado de ingredientes{% endblock %}
+{% block content %}
+    <h1>Lista de ingredientes</h1>
+    <ul>
+    {% for ingrediente in ingredientes %}
+        <li>{{ingrediente.nombre}}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

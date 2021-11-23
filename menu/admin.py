@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Ingrediente, Receta
+from .models import Ingrediente, Receta, Persona
 
 @admin.register(Ingrediente)
 class IngredienteAdmin(admin.ModelAdmin):
@@ -9,5 +9,8 @@ class IngredienteAdmin(admin.ModelAdmin):
     
 @admin.register(Receta)
 class RecetaAdmin(admin.ModelAdmin):
-    list_display =['nombre','calidad']
+    list_display =['nombre']
    
+@admin.register(Persona)
+class PersonaAdmin(admin.ModelAdmin):
+    list_display =['nombre', 'plato']

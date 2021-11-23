@@ -31,7 +31,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'crear_ingredientes' %}">Nuevo Ingrediente</a>
-          </li>        
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'listaIngredientes' %}">Lista Ingredientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'crear_receta' %}">Nueva receta</a>
+          </li>
         </ul>
         <ul class="sidebar-nav">        
           {% if user.is_authenticated %}
