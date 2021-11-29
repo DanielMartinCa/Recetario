@@ -1,7 +1,34 @@
 body{
-    
+
     background-size: 100%;
     
     background-repeat: no-repeat;
-    background-color: aquamarine;
+    
+    background-color: rgb(226, 187, 60);
+    
+}
+.lista ul {
+   padding-right: 0px;
+   padding-left: 0px;
+   padding-bottom: 0px;
+   padding-top: 0px;
+   margin: 0px;
+}
+.lista li {
+   list-style-type: none;
+   display: inline;
+   padding-right: 5px;
+   
+}
+.imgMenu {
+    border-radius: 50%;
+}
+.imgMenuRecetas {
+    border-radius: 15%;
+    margin-left: 20%;
+    margin-bottom: 30px;
+}
+
+.listaReceta {
+    margin-left: 30%;
 }

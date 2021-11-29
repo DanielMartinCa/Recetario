@@ -60,5 +60,15 @@ def subir_archivo(request):
 def todos_ingredientes(request):
     ingredientes = Ingrediente.objects.all().order_by('nombre')
     return render(request, 'listaIngredientes.html', context={'ingredientes':ingredientes})
+    
+
+def todas_recetas(request):
+    recetas = Receta.objects.all().order_by('nombre')
+    return render(request, 'listaRecetas.html', context={'recetas':recetas})
+
+class RecetasDetailView(generic.DetailView):
+
+    model = Receta
+    
 
 

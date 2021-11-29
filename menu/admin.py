@@ -1,16 +1,16 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Ingrediente, Receta, Persona
+from .models import Ingrediente, Receta, Alergia
 
 @admin.register(Ingrediente)
 class IngredienteAdmin(admin.ModelAdmin):
-    list_display =['nombre','origen']
+    list_display =['nombre']
     
 @admin.register(Receta)
 class RecetaAdmin(admin.ModelAdmin):
     list_display =['nombre']
    
-@admin.register(Persona)
-class PersonaAdmin(admin.ModelAdmin):
-    list_display =['nombre', 'plato']
+@admin.register(Alergia)
+class AlergiaAdmin(admin.ModelAdmin):
+    list_display =['nombre']

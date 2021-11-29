@@ -1,12 +1,19 @@
 {% extends "base.html"%}
+{% load static %}
 
 {% block title %}Listado de ingredientes{% endblock %}
 {% block content %}
-    <h1>Lista de ingredientes</h1>
+    <h1 class="titulo">Lista de ingredientes</h1>
+    <br><br>
+    <div class="lista">
     <ul>
     {% for ingrediente in ingredientes %}
-        <li>{{ingrediente.nombre}}
+        
+        <li>        
+        <img class="imgMenu" src="{{ingrediente.urlimage}}" width="220px" height="150px">        
         </li>
     {% endfor %}
     </ul>
+    </div>
+
 {% endblock %}
