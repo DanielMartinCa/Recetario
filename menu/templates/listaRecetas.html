@@ -6,16 +6,11 @@
     <br><br>
     <div class="lista">
     <ul>
-    {% for receta in recetas %}
-        
+    {% for receta in recetas %}        
         <li ><h3 class="listaReceta">{{receta.nombre}}</h2><br>
-            <a href="{% url 'detalle_receta' receta.id%}"><img class="imgMenuRecetas" src="{{receta.urlimage}}" width="500px" height="310px"></a>
-        
-        </li>
-        
+            <a href="{% url 'detalle_receta' receta.id%}"><img class="imgMenuRecetas" src="{{receta.urlimage}}" width="500px" height="310px"></a>       
+        </li>        
     {% endfor %}
     </ul>
     </div>
-
-
 {% endblock %}
