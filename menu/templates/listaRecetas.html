@@ -6,8 +6,10 @@
     <br><br>
     <div class="lista">
     <ul>
+    <!-- Recorremos las recetas y sacamos su nombre y la imagen que la acompaña, creando un
+    link sobre la imagen para poder ir a los detalles de cada receta-->
     {% for receta in recetas %}        
-        <li ><h3 class="listaReceta">{{receta.nombre}}</h2><br>
+        <li ><h3 class="listaReceta">{{receta.nombre}}</h3><br>
             <a href="{% url 'detalle_receta' receta.id%}"><img class="imgMenuRecetas" src="{{receta.urlimage}}" width="500px" height="310px"></a>       
         </li>        
     {% endfor %}

@@ -18,13 +18,12 @@ def indice(request):
     Página inicial de la web
     '''
     datos= {'autor': 'Daniel Martín'}
-    # ejemplo sesiones
     visitas = request.session.get('visitas', 0)
     request.session['visitas']= visitas + 1
-    datos['visitas'] = visitas
-
+    datos['visitas'] = visitas  
     
-    
+    recetas = Receta.objects.all().order_by('-id')[:2]
+    datos['Recetas']= recetas
     
     return render(request, 'index.html', context=datos)
 
@@ -70,5 +69,21 @@ class RecetasDetailView(generic.DetailView):
 
     model = Receta
     
+class SearchResultsListView(ListView):
+    model = Receta
+    context_object_name = 'recetas'
+    template_name = 'search_results.html'   
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Receta.objects.filter(nombre__icontains=query)
+        return []
 
 

@@ -45,6 +45,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'listaRecetas' %}">Lista recetas</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'buscarecetas' %}">Buscador de recetas</a>
+          </li>
         </ul>
         <ul class="sidebar-nav">        
           {% if user.is_authenticated %}
