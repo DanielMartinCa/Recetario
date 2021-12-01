@@ -8,6 +8,12 @@
     <img class="imgMenuDetail" src="{{receta.urlimage}}" width="800px" height="400px">
     <br><br>
     <h3>Preparación</h3>
+    <ul>
+        {% for ingrediente in receta.ingredientes.all %}
+        <li>{{ingrediente.nombre}}
+        </li>
+    {% endfor %}
+    </ul>
     <p>{{receta.descripcion}}</p>
 
 {% endblock %}
