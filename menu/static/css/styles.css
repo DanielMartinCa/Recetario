@@ -4,9 +4,10 @@ body{
     
     background-repeat: no-repeat;
     
-    background-color: rgb(226, 187, 60);
+    background-color: rgb(191, 233, 180);
     
 }
+
 .lista ul {
    padding-right: 0px;
    padding-left: 0px;
@@ -28,6 +29,8 @@ body{
     border-radius: 15%;
     margin-left: 20%;
     margin-bottom: 30px;
+    background-color: rgb(138, 192, 88);
+    padding: 15px;
 }
 
 .listaReceta {

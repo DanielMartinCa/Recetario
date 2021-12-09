@@ -1,18 +1,77 @@
 {% extends "base.html"%}
-
+{% load static %}
 {% block title %} Recetario {% endblock %}
+{% block extracss %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<style>
+    #mapa { height: 300px ;
+            width: 300px;
+            clear: left;
+            margin-top: 50px;
+            float: left;
+            margin-left:25%;
+        }
+    .indice {
+        display: block;
+        float: left;
+        margin-right: 15%;
+    }
+    .listaIndice {
+        text-align: center;
+    }
+    .imgindice{
+        background-color: rgb(138, 192, 88);
+        border-radius: 15%;
+        padding: 15px;
+    }
+    .textMapa{
+        clear: left;
+        float:left;
+        margin-top: 50px;
+        margin-left: 12%;
+    }
+</style>
+{% endblock %}
 {% block content %}
     <h1>Bienvenido a tu recetario</h1>
-    {{autor}}
+    
     <strong>Visitas : {{visitas}}</strong>
     <hr>
 
  
     <h2>Últimas recetas añadidas</h2>
     
+        <!-- Recorremos las recetas y sacamos su nombre y la imagen que la acompaña, creando un
+        link sobre la imagen para poder ir a los detalles de cada receta. Solo apareceran las dos últimas recetasx creadas-->
+        {% for receta in Recetas %}        
+            <span class="indice"><h4 class="listaIndice">{{receta.nombre}}</h4><br>
+                <a href="{% url 'detalle_receta' receta.id%}"><img class="imgindice" src="{{receta.urlimage}}" width="370px" height="260px"></a>
+            </span>       
+        {% endfor %}
+    <div class="textMapa"><h2>Aquí podrás disfrutar de alguna de éstas recetas</h2></div>
+    <div id="mapa"></div>
+    
                
-    Recetas : {{Recetas}}       
+          
         
     
     
+{% endblock %}
+{% block extrajs %}
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+
+<script>
+    var mimapa = L.map('mapa').setView([42.58790616622433, 0.3468552426680463], 13);
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+    }).addTo(mimapa);
+    L.marker([42.58790616622433, 0.3468552426680463]).addTo(mimapa).bindPopup("CPI Los Enlaces");
+    
+</script>
 {% endblock %}

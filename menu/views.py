@@ -22,8 +22,8 @@ def indice(request):
     request.session['visitas']= visitas + 1
     datos['visitas'] = visitas  
     
-    #recetas = Receta.objects.all().order_by('-id')[:2]
-    #datos['Recetas']= recetas
+    recetas = Receta.objects.all().order_by('-id')[:2]
+    datos['Recetas']= recetas
     
     return render(request, 'index.html', context=datos)
 
