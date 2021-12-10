@@ -6,4 +6,3 @@ from django import forms
 class IngredienteForm(ModelForm):
     class Meta:
         model = Ingrediente
-        

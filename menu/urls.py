@@ -1,5 +1,5 @@
 from django.urls import  include, path
-from menu.views import CreaIngrediente, CreaReceta, subir_archivo, todos_ingredientes,todas_recetas, RecetasDetailView, SearchResultsListView
+from menu.views import CreaIngrediente, CreaReceta, subir_archivo, todos_ingredientes,todas_recetas,EliminarReceta, ModificarReceta, RecetasDetailView, SearchResultsListView
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -12,6 +12,8 @@ urlpatterns= [
     path('listaRecetas/', todas_recetas, name = 'listaRecetas'),
     path('detalle_receta/<int:pk>', RecetasDetailView.as_view(), name="detalle_receta"),
     path('buscarecetas/', SearchResultsListView.as_view(), name='buscarecetas' ),
+    path('recetas/modificar/<int:pk>', ModificarReceta.as_view(), name='modificar_receta'),
+    path('recetas/eliminar/<int:pk>', EliminarReceta.as_view(), name='eliminar_receta'),
     
     ]
 if settings.DEBUG: 

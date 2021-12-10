@@ -39,6 +39,7 @@ class CreaReceta(SuccessMessageMixin, generic.CreateView):
     model = Receta
     fields = '__all__'
     template_name = 'crear_receta.html'
+    
     success_url = '/'
     
     success_message = "%(nombre)s se ha creado correctamente"
@@ -86,4 +87,19 @@ class SearchResultsListView(ListView):
             return Receta.objects.filter(nombre__icontains=query)
         return []
 
+class ModificarReceta(SuccessMessageMixin, generic.UpdateView):
+    model = Receta
+    fields = '__all__'
+    template_name = 'modificar_receta.html'
+    success_url = '/'
+    success_message = "%(nombre)s se ha modificado correctamente"
 
+class EliminarReceta( generic.DeleteView):
+    model = Receta
+    success_url = '/'
+    success_message = "La receta se ha borrado correctamente"
+    template_name = 'confirmar_borrado.html'
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(EliminarReceta, self).delete(request, *args, **kwargs)

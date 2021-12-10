@@ -1,6 +1,20 @@
 {% extends "base.html"%}
 {% load static %}
 {% block title %}Listado de recetas{% endblock %}
+{% block extracss %}
+    <style>
+        .eliminar {
+            text-decoration: underline;
+            text-decoration-color: brown;
+        }
+        .top {
+            float: left;
+            margin-left: 40%;
+            margin-bottom: 30px;
+        }
+    </style>
+
+{% endblock %}
 {% block content %}
     <h1 class="titulo">Lista de recetas</h1>
     <br><br>
@@ -9,10 +23,16 @@
     <!-- Recorremos las recetas y sacamos su nombre y la imagen que la acompaña, creando un
     link sobre la imagen para poder ir a los detalles de cada receta-->
     {% for receta in recetas %}        
-        <li ><h3 class="listaReceta">{{receta.nombre}}</h3><br>
+        <li ><h3 class="listaReceta">{{receta.nombre}}</h3><br>            
             <a href="{% url 'detalle_receta' receta.id%}"><img class="imgMenuRecetas" src="{{receta.urlimage}}" width="500px" height="310px"></a>       
+            {% if user.is_authenticated %}
+            <li><a href={% url 'modificar_receta' receta.id %}>Editar receta</a>
+            <a class="eliminar" href={% url 'eliminar_receta' receta.id %}>Eliminar receta</a></li>
+            {% endif %}
         </li>        
     {% endfor %}
     </ul>
     </div>
+    <a href="{% url 'listaRecetas'%}" class="top">Vuelve arriba</a>
 {% endblock %}
+<ul>
